@@ -1,9 +1,4 @@
-export type SpanishFoodsProp = {
-  name: string
-  description: string
-  price: number
-  image: string
-}
+import { SpanishFoodsProp } from "@/utils/types";
 
   const spanishFoods:SpanishFoodsProp[] = [
   {
