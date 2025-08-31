@@ -37,11 +37,15 @@ describe("SpanishFood Integration Test", () => {
         expect(within(cartItemRow!).getByText("2")).toBeInTheDocument();
 
         const expectedSubtotal = (firstFoodItem.price * 2).toFixed(2);
+        screen.debug()
         const finalSubTotal = screen.getByTestId("subTotalData")
+        console.log(finalSubTotal)
         expect(finalSubTotal).toBeInTheDocument()
 
         const expectedTax = (Number(expectedSubtotal) * 0.07).toFixed(2);
+        screen.debug(insideTheCart)
         const finalTax = within(insideTheCart).getByText(`€${expectedTax}`)
+        console.log("Matched text:", finalTax.textContent);
         expect(finalTax).toBeInTheDocument();
 
         const expectedShipping = "6.00";
@@ -71,24 +75,6 @@ describe("SpanishFood Integration Test", () => {
         expect(storedCart[0].name).toBe(spanishFoods[1].name);
     });
 
-      test("CHECK - adds items to cart and calculates totals", () => {
-        render(<SpanishFood />);
-
-        const firstFoodItem = spanishFoods[0];
-        const expectedFoodItem = screen.getAllByTestId("foodCard")[0];
-
-        const finalFoodItem = within(expectedFoodItem).getByText(firstFoodItem.name)
-        expect(finalFoodItem).toBeInTheDocument()
-
-        const addButton = within(expectedFoodItem).getByRole("button");
-        fireEvent.click(addButton);
-        fireEvent.click(addButton);
-
-        const cartIcon = screen.getByTestId("icon_SF");
-        fireEvent.click(cartIcon);
-        
-        const CartText = screen.getByText("Your Cart");
-        expect(CartText).toBeInTheDocument()
-    });
+     
 
 });

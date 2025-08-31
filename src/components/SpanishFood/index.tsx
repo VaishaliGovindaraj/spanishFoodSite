@@ -9,7 +9,7 @@ import Cart from "../Cart";
 const SpanishFood = () => {
 
     const [cartItems, setCartItems] = useState<CartDataProps[]>([])
-    const [cartDisplay, setCartDisplay] = useState<boolean>(false)
+    // const [cartDisplay, setCartDisplay] = useState<boolean>(false)
 
     useEffect(() => {
         const stored = localStorage.getItem("spanishFoodCart");
@@ -22,9 +22,9 @@ const SpanishFood = () => {
         localStorage.setItem("spanishFoodCart", JSON.stringify(cartItems));
     }, [cartItems]);
 
-    const handleClick = () => {
-        setCartDisplay(prev => !prev)
-    }
+    // const handleClick = () => {
+    //     setCartDisplay(prev => !prev)
+    // }
 
     const handleIncrease = (item: string) => {
         setCartItems(prev => {
@@ -86,33 +86,33 @@ const SpanishFood = () => {
 
             <div data-testid="spanishInfo" className="flex-grow m-auto px-4">
 
-                <button data-testid="icon_SF" onClick={handleClick} className="relative">
-                    <img
+                {/* <button data-testid="icon_SF" onClick={handleClick} className="relative"> */}
+                {/* <img
                         src="/cart-icon.png"
                         className="fixed top-8 right-10 md:right-14 w-12 h-12 z-40 cursor-pointer hover:scale-110 transition-transform"
                         alt="CartIcon"
-                    />
-                    {cartItems.length > 0 && (
-                        <span className="fixed top-5 right-6 bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
-                            {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
-                        </span>
-                    )}
-                </button>
-                <div className="bg-gray-800 bg-opacity-50 px-4 m-4">
+                    /> */}
+                {cartItems.length > 0 && (
+                    <span className="fixed top-5 right-6 bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                        {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+                    </span>
+                )}
+                {/* </button> */}
+                <div className= " px-4 m-4">
                     <div className="grid grid-cols-1  gap-6 mt-8">
                         {spanishFoods.map((item: SpanishFoodsProp, index: number) => (
                             <div
                                 key={index}
                                 data-testid="foodCard"
-                                className="flex mb-2 mt-2"
+                                
+                                className="flex bg-gray-800 bg-opacity-50 p-4 mb-2 mt-2"
                             >
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    width="200px"
-                                    height="auto"
+                                    className="w-40 h-auto object-contain rounded-lg md:w-48 mb-2"
                                 />
-                                <div className="flex-col max-w-[300px] bg-gray-600 mx-4 p-2 rounded-lg shadow">
+                                <div className="flex-col max-w-[300px] bg-gray-600 mx-2 px-2 rounded-lg shadow">
                                     <h3 className="text-lg font-bold text-white">{item.name}</h3>
                                     <div className="text-sm text-gray-200">{item.description}</div>
                                     <p className="text-white font-semibold">€{item.price}</p>
@@ -130,14 +130,14 @@ const SpanishFood = () => {
                     </div>
                 </div>
 
-                {cartDisplay && (
-                    <Cart
-                        items={cartItems}
-                        onIncrease={handleIncrease}
-                        onDecrease={handleDecrease}
-                        onRemove={handleRemove}
-                    />
-                )}
+                {/* {cartDisplay && ( */}
+                <Cart
+                    items={cartItems}
+                    onIncrease={handleIncrease}
+                    onDecrease={handleDecrease}
+                    onRemove={handleRemove}
+                />
+                {/* )} */}
             </div>
 
 
