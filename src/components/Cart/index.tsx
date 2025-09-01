@@ -113,10 +113,10 @@ const Cart = ({
                                 <span data-testid="subTotalData">{`€${subTotal.toFixed(2)}`}</span>
                                 {/* <p data-testid="subTotalData" className="text-white">{`€${subTotal.toFixed(2)}`}</p> */}
                             </div>
-                           <div>
-  <span className="font-bold">Tax:</span>
-  <span data-testid="taxData">{`€${Tax.toFixed(2)}`}</span>
-</div>
+                            <div>
+                                <span className="font-bold">Tax:</span>
+                                <span data-testid="taxData">{`€${Tax.toFixed(2)}`}</span>
+                            </div>
                             <div><span className="font-bold">Shipping: </span> €{Shipping.toFixed(2)}</div>
                             <div className="pb-2"><span className="font-bold">Total: </span> €{Total.toFixed(2)}</div>
                             <button

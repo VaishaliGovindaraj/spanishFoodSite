@@ -105,14 +105,14 @@ const SpanishFood = () => {
                                 key={index}
                                 data-testid="foodCard"
                                 
-                                className="flex bg-gray-800 bg-opacity-50 p-4 mb-2 mt-2"
+                                className="flex-col justify-center items-center sm:max-w-[1000px]  bg-gray-800 bg-opacity-50 p-8 mb-2 mt-2 "
                             >
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className="w-40 h-auto object-contain rounded-lg md:w-48 mb-2"
+                                    className="h-auto object-contain rounded-lg flex justify-center items-center md:w-80 md:ml-45 mb-2"
                                 />
-                                <div className="flex-col max-w-[300px] bg-gray-600 mx-2 px-2 rounded-lg shadow">
+                                <div className="flex-col items-center justify-center max-w-[600px] bg-gray-600 mx-2 px-2 rounded-lg shadow">
                                     <h3 className="text-lg font-bold text-white">{item.name}</h3>
                                     <div className="text-sm text-gray-200">{item.description}</div>
                                     <p className="text-white font-semibold">€{item.price}</p>
